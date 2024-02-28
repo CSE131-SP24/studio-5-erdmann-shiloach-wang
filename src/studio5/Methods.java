@@ -16,8 +16,12 @@ public class Methods {
 	public static double distanceBetween(double x1, double y1, double x2, double y2) {
 		double distance = 0;
 		// FIXME: Hint use Math methods (e.g. Math.sqrt) to compute the distance
-		
+		double xdiff = x2-x1;
+		double ydiff = y2-y1;
+		distance = Math.sqrt(xdiff*xdiff + ydiff*ydiff);
+		System.out.println(distance);
 		return distance;
+	
 	}
 
 	/**
@@ -28,8 +32,18 @@ public class Methods {
 	 * @param radius the radius of the bull's eye
 	 */
 	public static void drawBullsEye(double x, double y, double radius) {
+		
 		StdDraw.setPenColor(StdDraw.BLACK);
 		StdDraw.filledCircle(x, y, radius);
+		
+		StdDraw.setPenColor(0,109,219);
+		StdDraw.filledCircle(x, y, radius*(3.0/4.0));
+		
+		StdDraw.setPenColor(146,0,0);
+		StdDraw.filledCircle(x, y, radius*(1.0/2.0));
+		
+		StdDraw.setPenColor(255,255,109);
+		StdDraw.filledCircle(x, y, radius*(1.0/4.0));
 
 		// TODO: Draw the remaining rings of the bull's eye
 		// Blue ring with 3.0/4.0 the radius
@@ -60,10 +74,19 @@ public class Methods {
 	 *         characters in the source String with the replacement String
 	 */
 	public static String substituteAll(String source, char target, String replacement) {
-		String result = "";
 		// TODO: Finish this method
-		
-		return result;
+		char[] sourceArray = source.toCharArray();
+		String finalString = "";
+		for (int i = 0; i < source.length(); i++) {
+			if (sourceArray[i] == target) {
+				finalString = finalString + replacement;
+			}
+			else {
+				finalString = finalString + sourceArray[i];
+			}
+		}
+		System.out.println(finalString);
+		return finalString;
 	}
 
 	/**
